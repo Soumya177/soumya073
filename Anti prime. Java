@@ -1,0 +1,45 @@
+
+    // Function to check number is Anti Prime(Highly
+    // Composite) Number or not.
+    public static boolean isAntiPrime(int n)
+    {
+        int init = Divisors(n);
+        for (int i = 1; i < n; i++) {
+            if (Divisors(i) >= init)
+ 
+                return false;
+        }
+        return true;
+    }
+ 
+    // function to find divisors of a number
+    public static int Divisors(int a)
+    {
+        if (a == 1)
+            return 1;
+ 
+        // Now Finding number of all the factors
+        int f = 2;
+        for (int i = 2; i * i <= a; i++) {
+            if (a % i == 0) {
+                if (i * i != a) {
+                    f += 2;
+                }
+                else
+                    f++;
+            }
+        }
+        return f;
+    }
+ 
+    // Driver Code
+    public static void main(String args[])
+    {
+        int N = 5040;
+ 
+        // Function Call
+        if (isAntiPrime(N))
+            System.out.println(N + " is anti-prime");
+        else
+            System.out.println(N + " is not anti-prime");
+    }
